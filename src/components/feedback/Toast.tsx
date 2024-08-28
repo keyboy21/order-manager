@@ -3,14 +3,14 @@ import { cva } from "class-variance-authority";
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 import { cn } from "@/utils/cn.util";
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 
 type ToastRef = HTMLDivElement;
 type ToastProps = ComponentPropsWithoutRef<"div"> & {
 	type?: "success" | "error" | "info" | "loading" | "warning";
 };
 const toastVariants = cva(
-	"group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-5 pr-8 shadow-lg transition-all",
+	"group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border-2 p-5 pr-8 shadow-lg transition-all",
 	{
 		variants: {
 			type: {

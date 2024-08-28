@@ -10,7 +10,7 @@ type TextProps = ComponentPropsWithoutRef<'p'> & {
      as?: 'p' | 'span' | 'div';
 };
 
-const textVariants = cva('text-antialiased', {
+const paragraphVariants = cva('text-antialiased', {
      variants: {
           variant: {
                body: 'text-stone-900',
@@ -19,7 +19,7 @@ const textVariants = cva('text-antialiased', {
      },
 });
 
-export const Text = forwardRef<TextRef, TextProps>(
+export const Paragraph = forwardRef<TextRef, TextProps>(
      (
           { className, variant = 'body', asChild, children, as = 'p', ...props },
           ref,
@@ -28,7 +28,7 @@ export const Text = forwardRef<TextRef, TextProps>(
 
           return (
                <Component
-                    className={cn(textVariants({ variant }), className)}
+                    className={cn(paragraphVariants({ variant }), className)}
                     {...props}
                     ref={ref}
                >
@@ -38,4 +38,4 @@ export const Text = forwardRef<TextRef, TextProps>(
      },
 );
 
-Text.displayName = 'Text';
+Paragraph.displayName = 'Paragraph';
