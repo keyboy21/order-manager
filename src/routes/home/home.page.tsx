@@ -1,14 +1,22 @@
-import { Button } from "@/components/ui/Button"
-import { notify } from "@/utils/notify.util"
+import { DataTable } from "./data-table"
+import { useQuery } from "@tanstack/react-query"
+import { getTasks } from '@/api/getTasks'
+import { columns } from './colomuns'
+import { Container } from "@/components/ui/Container"
+import { TableLoading } from './table-loading'
 
 export const HomePage = () => {
+  const { isPending, error, data } = useQuery({ queryKey: ['tasks'], queryFn: getTasks })
+
+  if (isPending) return <TableLoading />
+
+  if (error) return 'An error has occurred: ' + error.message
+
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline text-red-700">Hello World</h1>
-      <Button className="border border-green-600"
-        onClick={() => notify('Hello', { type: 'success' })}>
-        Click me
-      </Button>
-    </div>
+    <section>
+      <Container className="pt-4">
+        <DataTable data={data} columns={columns} />
+      </Container>
+    </section>
   )
 }
