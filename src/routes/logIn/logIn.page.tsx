@@ -14,6 +14,7 @@ import { notify } from "@/utils/notify.util"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
+import { Toaster } from "sonner"
 import { z } from "zod"
 
 export function LoginPage() {
@@ -32,12 +33,16 @@ export function LoginPage() {
      const onSubmit = async (formData: z.infer<typeof logInSchema>) => {
           const { username, password } = formData;
 
-          onLogin({ username, password }, () => {
-               navigate("/");
-          });
-          notify("Register successful", {
-               type: "success",
-          });
+          if (username && password === 'admin') {
+               onLogin({ username, password }, () => {
+                    navigate("/");
+               });
+          } else {
+               notify("Учетные данные введены неверно", {
+                    type: "error",
+               });
+          }
+
      };
 
      return (
@@ -92,6 +97,7 @@ export function LoginPage() {
                     </Card>
 
                </Container>
+               <Toaster />
           </section>
      )
 }
