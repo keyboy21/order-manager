@@ -3,216 +3,288 @@
     "id": "8782",
     "name": "Optimize the Quantum Circuitry!",
     "status": "Ожидает оплаты",
-    "date": "2023-07-15"
+    "date": "2023-07-15",
+    "price": 340,
+    "count": 1
   },
   {
     "id": "7839",
     "name": "Integrate the Blockchain API!",
     "status": "Отправлен",
-    "date": "2024-01-08"
+    "date": "2024-01-08",
+    "price": 560,
+    "count": 1
   },
   {
     "id": "8686",
     "name": "Debug the Neural Interface!",
     "status": "Отменен",
-    "date": "2024-05-23"
+    "date": "2024-05-23",
+    "price": 720,
+    "count": 1
   },
   {
     "id": "1280",
     "name": "Encrypt the Cloud Storage!",
     "status": "Доставлен",
-    "date": "2023-11-12"
+    "date": "2023-11-12",
+    "price": 840,
+    "count": 43
   },
   {
     "id": "7262",
     "name": "Deploy the Machine Learning Model!",
     "status": "Доставлен",
-    "date": "2024-03-30"
+    "date": "2024-03-30",
+    "price": 960,
+    "count": 23
   },
   {
     "id": "1138",
     "name": "Calibrate the IoT Sensors!",
     "status": "Ожидает оплаты",
-    "date": "2023-06-22"
+    "date": "2023-06-22",
+    "price": 1080,
+    "count": 2
   },
   {
     "id": "7184",
     "name": "Upgrade the Security Protocols!",
     "status": "Отправлен",
-    "date": "2023-10-11"
+    "date": "2023-10-11",
+    "price": 1200,
+    "count": 1
   },
   {
     "id": "5160",
     "name": "Analyze the Big Data Pipeline!",
     "status": "Ожидает оплаты",
-    "date": "2024-02-17"
+    "date": "2024-02-17",
+    "price": 1320,
+    "count": 123
   },
   {
     "id": "5618",
     "name": "Refactor the Legacy Codebase!",
     "status": "Доставлен",
-    "date": "2024-06-02"
+    "date": "2024-06-02",
+    "price": 1440,
+    "count": 2
   },
   {
     "id": "8404",
     "name": "Test the Autonomous Vehicle!",
     "status": "Ожидает оплаты",
-    "date": "2024-08-29"
+    "date": "2024-08-29",
+    "price": 1560,
+    "count": 23
   },
   {
     "id": "5365",
     "name": "Implement the New API Endpoints!",
     "status": "Ожидает оплаты",
-    "date": "2023-12-05"
+    "date": "2023-12-05",
+    "price": 1680,
+    "count": 24
   },
   {
     "id": "1780",
     "name": "Configure the Virtual Network!",
     "status": "Отправлен",
-    "date": "2024-07-19"
+    "date": "2024-07-19",
+    "price": 1800,
+    "count": 345
   },
   {
     "id": "6938",
     "name": "Design the User Interface!",
     "status": "Отправлен",
-    "date": "2024-04-25"
+    "date": "2024-04-25",
+    "price": 1920,
+    "count": 3
   },
   {
     "id": "9285",
     "name": "Backup the Database!",
     "status": "Отправлен",
-    "date": "2023-09-13"
+    "date": "2023-09-13",
+    "price": 2040,
+    "count": 14
   },
   {
     "id": "1024",
     "name": "Deploy the Web Application!",
     "status": "Ожидает оплаты",
-    "date": "2023-05-18"
+    "date": "2023-05-18",
+    "price": 2160,
+    "count": 23
   },
   {
     "id": "7068",
     "name": "Monitor the System Health!",
     "status": "Отменен",
-    "date": "2024-06-27"
+    "date": "2024-06-27",
+    "price": 2280,
+    "count": 2
   },
   {
     "id": "6502",
     "name": "Optimize the Database Queries!",
     "status": "Отправлен",
-    "date": "2024-08-04"
+    "date": "2024-08-04",
+    "price": 2400,
+    "count": 2
   },
   {
     "id": "5326",
     "name": "Create the Test Cases!",
     "status": "Отправлен",
-    "date": "2023-11-29"
+    "date": "2023-11-29",
+    "price": 2520,
+    "count": 15
   },
   {
     "id": "6274",
     "name": "Develop the Mobile App!",
     "status": "Отменен",
-    "date": "2024-07-07"
+    "date": "2024-07-07",
+    "price": 2640,
+    "count": 1
   },
   {
     "id": "1571",
     "name": "Scale the Cloud Infrastructure!",
     "status": "Ожидает оплаты",
-    "date": "2024-02-14"
+    "date": "2024-02-14",
+    "price": 2760,
+    "count": 345
   },
   {
     "id": "9518",
     "name": "Configure the Firewall Rules!",
     "status": "Отменен",
-    "date": "2023-10-20"
+    "date": "2023-10-20",
+    "price": 2880,
+    "count": 2
   },
   {
     "id": "9892",
     "name": "Setup the DevOps Pipeline!",
     "status": "Доставлен",
-    "date": "2024-03-11"
+    "date": "2024-03-11",
+    "price": 3000,
+    "count": 3
   },
   {
     "id": "9616",
     "name": "Analyze the Cybersecurity Threats!",
     "status": "Ожидает оплаты",
-    "date": "2024-05-02"
+    "date": "2024-05-02",
+    "price": 3120,
+    "count": 14
   },
   {
     "id": "9744",
     "name": "Automate the Deployment Process!",
     "status": "Доставлен",
-    "date": "2023-09-30"
+    "date": "2023-09-30",
+    "price": 3240,
+    "count": 23
   },
   {
     "id": "7382",
     "name": "Enhance the User Experience!",
     "status": "Отправлен",
-    "date": "2023-08-17"
+    "date": "2023-08-17",
+    "price": 3360,
+    "count": 345
   },
   {
     "id": "2290",
     "name": "Setup the Continuous Integration!",
     "status": "Отменен",
-    "date": "2024-01-29"
+    "date": "2024-01-29",
+    "price": 3480,
+    "count": 2
   },
   {
     "id": "1533",
     "name": "Configure the Load Balancer!",
     "status": "Доставлен",
-    "date": "2024-07-03"
+    "date": "2024-07-03",
+    "price": 3600,
+    "count": 15
   },
   {
     "id": "4920",
     "name": "Implement the Microservices Architecture!",
     "status": "Ожидает оплаты",
-    "date": "2024-08-11"
+    "date": "2024-08-11",
+    "price": 3720,
+    "count": 1
   },
   {
     "id": "5168",
     "name": "Secure the Network Perimeter!",
     "status": "Ожидает оплаты",
-    "date": "2023-04-26"
+    "date": "2023-04-26",
+    "price": 3840,
+    "count": 2
   },
   {
     "id": "7103",
     "name": "Optimize the Application Performance!",
     "status": "Отменен",
-    "date": "2024-03-06"
+    "date": "2024-03-06",
+    "price": 3960,
+    "count": 345
   },
   {
     "id": "4314",
     "name": "Setup the Disaster Recovery Plan!",
     "status": "Ожидает оплаты",
-    "date": "2023-07-21"
+    "date": "2023-07-21",
+    "price": 4080,
+    "count": 23
   },
   {
     "id": "3415",
     "name": "Update the SSL Certificates!",
     "status": "Отправлен",
-    "date": "2024-01-16"
+    "date": "2024-01-16",
+    "price": 4200,
+    "count": 1
   },
   {
     "id": "6995",
     "name": "Migrate the Database to the Cloud!",
     "status": "Отправлен",
-    "date": "2023-06-30"
+    "date": "2023-06-30",
+    "price": 4320,
+    "count": 345
   },
   {
     "id": "8053",
     "name": "Audit the Security Logs!",
     "status": "Отправлен",
-    "date": "2024-05-19"
+    "date": "2024-05-19",
+    "price": 4440,
+    "count": 23
   },
   {
     "id": "4336",
     "name": "Deploy the Backup Strategy!",
     "status": "Отправлен",
-    "date": "2023-12-22"
+    "date": "2023-12-22",
+    "price": 4560,
+    "count": 1
   },
   {
     "id": "8790",
     "name": "Conduct the Penetration Testing!",
     "status": "Доставлен",
-    "date": "2024-08-08"
+    "date": "2024-08-08",
+    "price": 4680,
+    "count": 345
   }
 ]

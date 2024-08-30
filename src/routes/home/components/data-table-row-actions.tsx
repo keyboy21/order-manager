@@ -25,6 +25,14 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/Sheet";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/Dialog"
 import { notify } from "@/utils/notify.util"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/form";
@@ -37,14 +45,17 @@ import { useModal } from "@/hooks/useModal";
 
 interface DataTableRowActionsProps {
   id: string;
+  name: string;
   status: string;
+  price: number;
+  count: number;
 }
 
 const orderStatus = z.object({
   status: z.string(),
 });
 
-export function DataTableRowActions({ id, status }: DataTableRowActionsProps) {
+export function DataTableRowActions({ id, status, count, price, name }: DataTableRowActionsProps) {
 
   const { close, open, visible } = useModal();
 
@@ -66,49 +77,85 @@ export function DataTableRowActions({ id, status }: DataTableRowActionsProps) {
   };
   return (
     <Sheet onClose={open} open={visible} modal>
-      <AlertDialog>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
-            >
-              <DotsHorizontalIcon className="h-4 w-4" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-[160px]">
-            {/* Sheet Trigger */}
-            <SheetTrigger onClick={open} asChild>
-              <DropdownMenuItem>
-                Изменить
-              </DropdownMenuItem>
-            </SheetTrigger>
+      <Dialog>
+        <AlertDialog>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+              >
+                <DotsHorizontalIcon className="h-4 w-4" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-[160px]">
+              {/* More info */}
+              <DialogTrigger asChild>
+                <DropdownMenuItem>
+                  Подробнее
+                </DropdownMenuItem>
+              </DialogTrigger>
 
-            {/* Alert Dialog Trigger */}
-            <AlertDialogTrigger asChild>
-              <DropdownMenuItem>
-                Удалить
-              </DropdownMenuItem>
-            </AlertDialogTrigger>
-          </DropdownMenuContent>
-        </DropdownMenu>
+              {/* Sheet Trigger */}
+              <SheetTrigger onClick={open} asChild>
+                <DropdownMenuItem>
+                  Изменить
+                </DropdownMenuItem>
+              </SheetTrigger>
+
+              {/* Alert Dialog Trigger */}
+              <AlertDialogTrigger asChild>
+                <DropdownMenuItem>
+                  Удалить
+                </DropdownMenuItem>
+              </AlertDialogTrigger>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          {/* Alert Dialog Content */}
+          <AlertDialogPortal>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Вы уверены что хотите удалить?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Это действие нельзя будет отменить.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Отмена</AlertDialogCancel>
+                <AlertDialogAction onClick={() => notify(`${id} успешно удалено`, { type: 'success' })}>Удалить</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogPortal>
+        </AlertDialog>
         {/* Dialog Content */}
-        <AlertDialogPortal>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Вы уверены что хотите удалить?</AlertDialogTitle>
-              <AlertDialogDescription>
-                Это действие нельзя будет отменить.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Отмена</AlertDialogCancel>
-              <AlertDialogAction onClick={() => notify(`${id} успешно удалено`, { type: 'success' })}>Удалить</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogPortal>
-      </AlertDialog>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              Информация о заказе
+            </DialogTitle>
+            <DialogDescription>
+              <span className="font-bold">
+                Имя клиента:{" "}
+              </span>
+              {name}
+              <br />
+              <span className="font-bold">
+                Количество: {" "}
+              </span>
+              {count}
+              <br />
+              <span className="font-bold">
+                Цена: {" "}
+              </span>
+              {price}
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+
+
+      </Dialog>
+
       {/* Sheet Content */}
       <SheetContent onClose={close}>
         <SheetHeader>

@@ -75,6 +75,9 @@ export const columns: ColumnDef<Task>[] = [
           cell: ({ row }) => <DataTableRowActions
                status={row.original.status}
                id={row.original.id}
+               price={row.original.price}
+               count={row.original.count}
+               name={row.original.name}
           />,
      },
 ]
