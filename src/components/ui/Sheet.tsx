@@ -3,8 +3,8 @@ import type {
 	ElementRef,
 	FC,
 	ReactNode,
-} from 'react';
-import { forwardRef } from 'react';
+} from "react";
+import { forwardRef } from "react";
 import {
 	Close,
 	Content,
@@ -14,11 +14,11 @@ import {
 	Root,
 	Title,
 	Trigger,
-} from '@radix-ui/react-dialog';
+} from "@radix-ui/react-dialog";
 
-import { Heading } from '@/components/ui/Heading';
-import { cn } from '@/utils/cn.util';
-import { XCircle } from 'lucide-react';
+import { Heading } from "@/components/ui/Heading";
+import { cn } from "@/utils/cn.util"
+import { XCircle } from "lucide-react";
 
 /**
  * Props for the Sheet component.
@@ -81,9 +81,9 @@ export const Sheet: FC<SheetProps> = ({
 		</Root>
 	);
 };
-Sheet.displayName = 'Sheet';
+Sheet.displayName = "Sheet";
 export const SheetTrigger = Trigger;
-SheetTrigger.displayName = 'SheetTrigger';
+SheetTrigger.displayName = "SheetTrigger";
 
 // Sheet Close
 type SheetCloseRef = ElementRef<typeof Close>;
@@ -97,7 +97,7 @@ export const SheetClose = forwardRef<SheetCloseRef, SheetCloseProps>(
 		);
 	},
 );
-SheetClose.displayName = 'SheetClose';
+SheetClose.displayName = "SheetClose";
 
 // Sheet Portal
 type SheetPortalProps = ComponentPropsWithoutRef<typeof Portal> & {
@@ -114,7 +114,7 @@ const SheetPortal: FC<SheetPortalProps> = ({
 
 	return <Portal {...props}>{children}</Portal>;
 };
-SheetPortal.displayName = 'SheetPortal';
+SheetPortal.displayName = "SheetPortal";
 
 // Sheet Overlay
 type SheetOverlayRef = ElementRef<typeof Overlay>;
@@ -124,8 +124,8 @@ const SheetOverlay = forwardRef<SheetOverlayRef, SheetOverlayProps>(
 		return (
 			<Overlay
 				className={cn(
-					'fixed inset-0 z-50 backdrop-blur-md',
-					'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+					"fixed inset-0 z-50 backdrop-blur-md",
+					"data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
 					className,
 				)}
 				{...props}
@@ -134,13 +134,13 @@ const SheetOverlay = forwardRef<SheetOverlayRef, SheetOverlayProps>(
 		);
 	},
 );
-SheetOverlay.displayName = 'SheetOverlay';
+SheetOverlay.displayName = "SheetOverlay";
 
 // Sheet Content
 type SheetContentRef = ElementRef<typeof Content>;
 type SheetContentProps = ComponentPropsWithoutRef<typeof Content> & {
 	/** The side of the sheet. Defaults to `right`. */
-	side?: 'left' | 'right';
+	side?: "left" | "right";
 	/** Whether the sheet should be rendered in a portal or not. Defaults to `true`. */
 	shouldPortal?: boolean;
 	/** Whether the sheet should be focus locked on open or not. Defaults to `false`. */
@@ -169,7 +169,7 @@ export const SheetContent = forwardRef<SheetContentRef, SheetContentProps>(
 	(
 		{
 			className,
-			side = 'right',
+			side = "right",
 			focusLock = false,
 			shouldPortal = true,
 			closeOnEscape = true,
@@ -206,12 +206,12 @@ export const SheetContent = forwardRef<SheetContentRef, SheetContentProps>(
 				<SheetOverlay {...overlayProps} />
 				<Content
 					className={cn(
-						'fixed inset-y-0 z-50 w-3/4 gap-4 overflow-y-auto bg-white p-6 shadow-lg',
+						"fixed inset-y-0 z-50 w-3/4 gap-4 overflow-y-auto bg-white p-6 shadow-lg",
 						{
-							'inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:animate-sheet-content-out-to-right data-[state=open]:animate-sheet-content-in-from-right sm:max-w-sm':
-								side === 'right',
-							'inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:animate-sheet-content-out-to-left data-[state=open]:animate-sheet-content-in-from-left sm:max-w-sm':
-								side === 'left',
+							"inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:animate-sheet-content-out-to-right data-[state=open]:animate-sheet-content-in-from-right sm:max-w-sm":
+								side === "right",
+							"inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:animate-sheet-content-out-to-left data-[state=open]:animate-sheet-content-in-from-left sm:max-w-sm":
+								side === "left",
 						},
 						className,
 					)}
@@ -234,50 +234,50 @@ export const SheetContent = forwardRef<SheetContentRef, SheetContentProps>(
 		);
 	},
 );
-SheetContent.displayName = 'SheetContent';
+SheetContent.displayName = "SheetContent";
 
 // Sheet Header
-type SheetHeaderRef = ElementRef<'header'>;
-type SheetHeaderProps = ComponentPropsWithoutRef<'header'>;
+type SheetHeaderRef = ElementRef<"header">;
+type SheetHeaderProps = ComponentPropsWithoutRef<"header">;
 export const SheetHeader = forwardRef<SheetHeaderRef, SheetHeaderProps>(
 	({ className, ...props }, ref) => {
 		return (
 			<header
-				className={cn('mb-3 px-6 text-center', className)}
+				className={cn("mb-3 px-6 text-center", className)}
 				{...props}
 				ref={ref}
 			/>
 		);
 	},
 );
-SheetHeader.displayName = 'SheetHeader';
+SheetHeader.displayName = "SheetHeader";
 
 // Sheet Body
-type SheetBodyRef = ElementRef<'div'>;
-type SheetBodyProps = ComponentPropsWithoutRef<'div'>;
+type SheetBodyRef = ElementRef<"div">;
+type SheetBodyProps = ComponentPropsWithoutRef<"div">;
 export const SheetBody = forwardRef<SheetBodyRef, SheetBodyProps>(
 	({ className, ...props }, ref) => {
 		return (
 			<div
 				role="main"
-				className={cn('flex flex-col', className)}
+				className={cn("flex flex-col", className)}
 				{...props}
 				ref={ref}
 			/>
 		);
 	},
 );
-SheetBody.displayName = 'SheetBody';
+SheetBody.displayName = "SheetBody";
 
 // Sheet Footer
-type SheetFooterRef = ElementRef<'footer'>;
-type SheetFooterProps = ComponentPropsWithoutRef<'footer'>;
+type SheetFooterRef = ElementRef<"footer">;
+type SheetFooterProps = ComponentPropsWithoutRef<"footer">;
 export const SheetFooter = forwardRef<SheetFooterRef, SheetFooterProps>(
 	({ className, ...props }, ref) => {
-		return <footer className={cn('mt-5', className)} {...props} ref={ref} />;
+		return <footer className={cn("mt-5", className)} {...props} ref={ref} />;
 	},
 );
-SheetFooter.displayName = 'SheetFooter';
+SheetFooter.displayName = "SheetFooter";
 
 // Sheet Title
 type SheetTitleRef = ElementRef<typeof Heading>;
@@ -288,7 +288,7 @@ export const SheetTitle = forwardRef<SheetTitleRef, SheetTitleProps>(
 			<Title asChild={true}>
 				<Heading
 					as="h3"
-					className={cn('text-2xl font-semibold', className)}
+					className={cn("text-2xl font-semibold", className)}
 					{...props}
 					ref={ref}
 				/>
@@ -296,7 +296,7 @@ export const SheetTitle = forwardRef<SheetTitleRef, SheetTitleProps>(
 		);
 	},
 );
-SheetTitle.displayName = 'SheetTitle';
+SheetTitle.displayName = "SheetTitle";
 
 // Sheet Description
 type SheetDescriptionRef = ElementRef<typeof Description>;
@@ -307,10 +307,10 @@ export const SheetDescription = forwardRef<
 >(({ className, ...props }, ref) => {
 	return (
 		<Description
-			className={cn('text-base text-gray-500', className)}
+			className={cn("text-base text-gray-500", className)}
 			{...props}
 			ref={ref}
 		/>
 	);
 });
-SheetDescription.displayName = 'SheetDescription';
+SheetDescription.displayName = "SheetDescription";

@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {
   ColumnDef,
@@ -33,7 +31,7 @@ interface DataTableProps<TData, TValue> {
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({ data, columns}: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ data, columns }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
@@ -110,7 +108,7 @@ export function DataTable<TData, TValue>({ data, columns}: DataTableProps<TData,
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  Нет данных
                 </TableCell>
               </TableRow>
             )}

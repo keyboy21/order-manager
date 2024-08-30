@@ -5,8 +5,6 @@ import {
   EyeNoneIcon,
 } from "@radix-ui/react-icons"
 import { Column } from "@tanstack/react-table"
-
-import { cn } from "@/utils/cn.util"
 import { Button } from "@/components/ui/Button"
 import {
   DropdownMenu,
@@ -15,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/DropDownMenu"
+import { cn } from "@/utils/cn.util"
 
 interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -62,7 +61,7 @@ export function DataTableColumnHeader<TData, TValue>({
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
             <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-accent-foreground" />
-            Hide
+            Убрать
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
