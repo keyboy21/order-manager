@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/DropDownMenu"
 import {
   Sheet,
-  SheetTrigger,
   SheetContent,
   SheetFooter,
   SheetHeader,
@@ -76,7 +75,7 @@ export function DataTableRowActions({ id, status, count, price, name }: DataTabl
 
   };
   return (
-    <Sheet onClose={open} open={visible} modal>
+    <Sheet open={visible} onOpenChange={close} modal>
       <Dialog>
         <AlertDialog>
           <DropdownMenu>
@@ -98,11 +97,9 @@ export function DataTableRowActions({ id, status, count, price, name }: DataTabl
               </DialogTrigger>
 
               {/* Sheet Trigger */}
-              <SheetTrigger onClick={open} asChild>
-                <DropdownMenuItem>
-                  Изменить
-                </DropdownMenuItem>
-              </SheetTrigger>
+              <DropdownMenuItem onClick={open}>
+                Изменить
+              </DropdownMenuItem>
 
               {/* Alert Dialog Trigger */}
               <AlertDialogTrigger asChild>
@@ -152,64 +149,62 @@ export function DataTableRowActions({ id, status, count, price, name }: DataTabl
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
-
-
       </Dialog>
 
       {/* Sheet Content */}
-      <SheetContent onClose={close}>
+      <SheetContent>
         <SheetHeader>
           <SheetTitle>Изменить статус</SheetTitle>
+          <div className="grid gap-4 py-4">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onEdit)}
+                className="flex flex-col gap-y-3"
+              >
+                <FormField
+                  control={form.control}
+                  name="status"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        Изменить статус
+                      </FormLabel>
+                      <FormControl>
+                        <Select
+                          defaultValue={`${status}`}
+                          onValueChange={field.onChange}
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder={status} />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {statuses.map((status) => (
+                              <SelectItem
+                                key={`${status.value}`}
+                                value={`${status.value}`}
+                              >
+                                {status.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <SheetFooter className="flex gap-3">
+                  <Button className="bg-green-600" type="submit">
+                    Изменить
+                  </Button>
+                  <Button className="bg-red-600" onClick={close} >
+                    Cancel
+                  </Button>
+                </SheetFooter>
+              </form>
+            </Form>
+          </div>
         </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onEdit)}
-              className="flex flex-col gap-y-3"
-            >
-              <FormField
-                control={form.control}
-                name="status"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Изменить статус
-                    </FormLabel>
-                    <FormControl>
-                      <Select
-                        defaultValue={`${status}`}
-                        onValueChange={field.onChange}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder={status} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {statuses.map((status) => (
-                            <SelectItem
-                              key={`${status.value}`}
-                              value={`${status.value}`}
-                            >
-                              {status.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <SheetFooter className="flex gap-3">
-                <Button className="bg-green-600" type="submit">
-                  Изменить
-                </Button>
-                <Button className="bg-red-600" onClick={close} >
-                  Cancel
-                </Button>
-              </SheetFooter>
-            </form>
-          </Form>
-        </div>
       </SheetContent>
     </Sheet>
   )
