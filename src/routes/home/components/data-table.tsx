@@ -23,6 +23,12 @@ import {
   TableRow,
 } from "@/components/ui/Table"
 
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/Collapsible"
+
 import { DataTablePagination } from "./data-table-pagination"
 import { DataTableToolbar } from "./data-table-toolbar"
 
@@ -88,19 +94,42 @@ export function DataTable<TData, TValue>({ data, columns }: DataTableProps<TData
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <Collapsible key={row.id} asChild>
+                  <>
+                    <TableRow
+                      data-state={row.getIsSelected() && "selected"}
+                      className="!appearance-none cursor-pointer"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <CollapsibleTrigger asChild key={cell.id}>
+                          <TableCell key={cell.id}>
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
+                          </TableCell>
+                        </CollapsibleTrigger>
+                      ))}
+                    </TableRow>
+                    {/* Collapsible content for each row in the table */}
+                    {/* Extra data can be rendered here */}
+                    <CollapsibleContent asChild>
+                      <TableRow>
+                        <TableCell />
+                        <TableCell>
+                          Информация:
+                        </TableCell>
+                        <TableCell>
+                          Количество: {row.original.count}
+                        </TableCell>
+                        <TableCell>
+                          Цена: {row.original?.price}
+                        </TableCell>
+                        <TableCell />
+                      </TableRow>
+                    </CollapsibleContent>
+                  </>
+                </Collapsible>
               ))
             ) : (
               <TableRow>
